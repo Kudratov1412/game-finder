@@ -17,6 +17,21 @@ const getMonth = () => {
   return trueString(new Date().getMonth() + 1);
 };
 const getDay = () => {
-  
-  return trueString(new Date().getDay() + 1);
+  return trueString(new Date().getDate());
 };
+const currentYear = new Date().getFullYear();
+const currentMonth = getMonth();
+const currentDay = getDay();
+// Current Date
+const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+// Last Year
+const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
+// New Year
+const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
+// Popular Games
+const popular_games = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-rating&page_size`;
+
+const popularGames = () => {
+  return `${base_url}${popular_games}`;
+};
+console.log(popularGames());
