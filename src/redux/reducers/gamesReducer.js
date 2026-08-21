@@ -1,3 +1,5 @@
+import { useRouteLoaderData } from "react-router-dom";
+
 const initState = {
   popular: [],
   newGames: [],
