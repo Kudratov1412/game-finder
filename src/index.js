@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 // Importing Reducer
 import rootReducer from "./redux/reducers";
 // Redux Thunk
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 
 const composeEnhencer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
