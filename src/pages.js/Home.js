@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <GameList className="list">
-      <h2>Home page</h2>
+      <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
           <Game
@@ -31,13 +31,45 @@ const Home = () => {
           />
         ))}
       </Games>
+      <h2>Popular Games</h2>
+      <Games>
+        {popular.map((game) => (
+          <Game
+            key={game.id}
+            name={game.name}
+            released={game.released}
+            img={game.background_image}
+          />
+        ))}
+      </Games>
+      <h2>New Games Games</h2>
+      <Games>
+        {newGames.map((game) => (
+          <Game
+            key={game.id}
+            name={game.name}
+            released={game.released}
+            img={game.background_image}
+          />
+        ))}
+      </Games>
     </GameList>
+    
   );
 };
 
 // Styled-Components
-const GameList = styled(motion.div)``;
+const GameList = styled(motion.div)`
+  padding: 0 5rem;
+  h2 {
+    padding: 5rem 0;
+  }
+`;
 
-const Games = styled(motion.div)``;
+const Games = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem 5rem;
+`;
 
 export default Home;
