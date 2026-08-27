@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <GameList className="list">
-      {/* <GameDetail /> */}
+      <GameDetail />
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
