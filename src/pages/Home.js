@@ -9,7 +9,7 @@ import GameDetail from "../components/gameDetail";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Home = () => {
+const Home = ({ cardChecked, setCardChecked }) => {
   // useDispatch
   const dispatch = useDispatch();
   // useEffect
@@ -21,12 +21,15 @@ const Home = () => {
 
   return (
     <GameList className="list">
-      <GameDetail />
+      {cardChecked ? <GameDetail /> : ""}
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
           <Game
+            cardChecked={cardChecked}
+            setCardChecked={setCardChecked}
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -37,7 +40,10 @@ const Home = () => {
       <Games>
         {popular.map((game) => (
           <Game
+            cardChecked={cardChecked}
+            setCardChecked={setCardChecked}
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -48,7 +54,10 @@ const Home = () => {
       <Games>
         {newGames.map((game) => (
           <Game
+            cardChecked={cardChecked}
+            setCardChecked={setCardChecked}
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}

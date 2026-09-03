@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { loadDetail } from "./../redux/actions/detailAction";
 
-const Game = ({ name, released, img, id }) => {
+const Game = ({ name, released, img, id, cardChecked, setCardChecked }) => {
   // Load Details
   const dispatch = useDispatch();
   const loadDispatchHandler = () => {
+
     dispatch(loadDetail(id));
+    setCardChecked(true);
   };
 
   return (
