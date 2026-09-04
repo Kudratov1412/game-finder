@@ -8,6 +8,8 @@ import GameDetail from "../components/gameDetail";
 // Styled
 import styled from "styled-components";
 import { motion } from "framer-motion";
+// image
+import fon_img from "./../img/main_fon.jpg";
 
 const Home = () => {
   // useDispatch
@@ -21,7 +23,10 @@ const Home = () => {
 
   return (
     <GameList className="list">
-      <GameDetail />
+      <StyledHeader className="Header">
+        <img src={fon_img} alt="Header" />
+      </StyledHeader>
+      {/* <GameDetail /> */}
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
@@ -60,14 +65,25 @@ const Home = () => {
 };
 
 // Styled-Components
+const StyledHeader = styled(motion.div)`
+  width: 99.6vw;
+  height: 35vh;
+  overflow: hidden;
+  img {
+    width: 100%;
+    
+    object-fit: cover;
+  }
+`;
+
 const GameList = styled(motion.div)`
-  padding: 0 5rem;
   h2 {
     padding: 5rem 0;
   }
 `;
 
 const Games = styled(motion.div)`
+  padding: 0 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 3rem 5rem;
