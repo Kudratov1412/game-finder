@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 const GameDetail = () => {
   // Data
   const { game, screen } = useSelector((state) => state.detail);
+
   return (
     <CardShadow>
       <div className="card-shadow">
@@ -20,9 +21,11 @@ const GameDetail = () => {
             <div className="info">
               <h3>Platforms</h3>
               <div className="platforms">
-                {game.platforms.map((data) => (
-                  <h2 key={data.platform.id}>{data.platform.name}</h2>
-                ))}
+                {Object.keys(game).length !== 0
+                  ? game.platforms.map((data) => (
+                      <h2 key={data.platform.id}>{data.platform.name}</h2>
+                    ))
+                  : ""}
               </div>
             </div>
           </div>
@@ -30,9 +33,11 @@ const GameDetail = () => {
             <img src={game.background_image} alt="game.background_image" />
           </div>
           <div className="gallery">
-            {screen.results.map((s) => (
-              <img key={s.id} src={s.image} alt="screen_img" />
-            ))}
+            {Object.keys(screen).length !== 0
+              ? screen.results.map((s) => (
+                  <img key={s.id} src={s.image} alt="screen_img" />
+                ))
+              : ""}
           </div>
         </CardDetail>
       </div>

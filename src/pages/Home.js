@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 // image
 import fon_img from "./../img/main_fon.jpg";
 
-const Home = () => {
+const Home = ({ cardChecked, setCardChecked }) => {
   // useDispatch
   const dispatch = useDispatch();
   // useEffect
@@ -23,15 +23,22 @@ const Home = () => {
 
   return (
     <GameList className="list">
+<<<<<<< HEAD
       <StyledHeader className="Header">
         <img src={fon_img} alt="Header" />
       </StyledHeader>
       {/* <GameDetail /> */}
+=======
+      {cardChecked ? <GameDetail /> : ""}
+>>>>>>> 481650269ae537d85c7369b9c4d1bc72e0f55b1e
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
           <Game
+            cardChecked={cardChecked}
+            setCardChecked={setCardChecked}
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -42,7 +49,10 @@ const Home = () => {
       <Games>
         {popular.map((game) => (
           <Game
+            cardChecked={cardChecked}
+            setCardChecked={setCardChecked}
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -53,7 +63,10 @@ const Home = () => {
       <Games>
         {newGames.map((game) => (
           <Game
+            cardChecked={cardChecked}
+            setCardChecked={setCardChecked}
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
