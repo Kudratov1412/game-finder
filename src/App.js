@@ -4,11 +4,10 @@ import Home from "./pages/Home";
 import GlobalStyles from "./components/GlobalStyles";
 
 function App() {
-  const [cardChecked, setCardChecked] = useState(false);
   return (
     <div className="App">
       <GlobalStyles />
-      <Home cardChecked={cardChecked} setCardChecked={setCardChecked} />
+      <Home />
     </div>
   );
 }

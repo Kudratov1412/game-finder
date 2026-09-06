@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { loadGames } from "../redux/actions/gamesAction";
 // Components
+import { loadGames } from "../redux/actions/gamesAction";
 import Game from "../components/Game";
-import GameDetail from "../components/gameDetail";
 // Styled
 import styled from "styled-components";
 import { motion } from "framer-motion";
 // image
 import fon_img from "./../img/main_fon.jpg";
 
-const Home = ({ cardChecked, setCardChecked }) => {
+const Home = () => {
   // useDispatch
   const dispatch = useDispatch();
   // useEffect
@@ -23,20 +22,13 @@ const Home = ({ cardChecked, setCardChecked }) => {
 
   return (
     <GameList className="list">
-<<<<<<< HEAD
       <StyledHeader className="Header">
         <img src={fon_img} alt="Header" />
       </StyledHeader>
-      {/* <GameDetail /> */}
-=======
-      {cardChecked ? <GameDetail /> : ""}
->>>>>>> 481650269ae537d85c7369b9c4d1bc72e0f55b1e
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
           <Game
-            cardChecked={cardChecked}
-            setCardChecked={setCardChecked}
             key={game.id}
             id={game.id}
             name={game.name}
@@ -49,8 +41,6 @@ const Home = ({ cardChecked, setCardChecked }) => {
       <Games>
         {popular.map((game) => (
           <Game
-            cardChecked={cardChecked}
-            setCardChecked={setCardChecked}
             key={game.id}
             id={game.id}
             name={game.name}
@@ -63,8 +53,6 @@ const Home = ({ cardChecked, setCardChecked }) => {
       <Games>
         {newGames.map((game) => (
           <Game
-            cardChecked={cardChecked}
-            setCardChecked={setCardChecked}
             key={game.id}
             id={game.id}
             name={game.name}
@@ -82,10 +70,12 @@ const StyledHeader = styled(motion.div)`
   width: 99.6vw;
   height: 35vh;
   overflow: hidden;
+  position: relative;
   img {
     width: 100%;
-    
-    object-fit: cover;
+    position: absolute;
+    top: 17.5vh;
+    transform: translateY(-50%);
   }
 `;
 

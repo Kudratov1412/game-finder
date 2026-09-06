@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 // Styled
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 // Import Redux
 import { useDispatch } from "react-redux";
 import { loadDetail } from "./../redux/actions/detailAction";
+import GameDetail from "../components/gameDetail";
 
-const Game = ({ name, released, img, id, cardChecked, setCardChecked }) => {
+const Game = ({ name, released, img, id }) => {
   // Load Details
   const dispatch = useDispatch();
   const loadDispatchHandler = () => {
-
     dispatch(loadDetail(id));
     setCardChecked(true);
+  };
+  const [cardChecked, setCardChecked] = useState(false);
+
+  const exit = () => {
+    setCardChecked(false);
+    console.log("aaaaa");
   };
 
   return (
     <StyledGame onClick={loadDispatchHandler}>
-      <h3>Game Name: {name}</h3>
-      <p>Released Date: {released}</p>
-      <img src={img} alt="" />
+      <div className="card">
+        <h3>Game Name: {name}</h3>
+        <p>Released Date: {released}</p>
+        <img src={img} alt="" />
+      </div>
+      <AnimatePresence>
+        {cardChecked && <GameDetail exit={exit} />}
+      </AnimatePresence>
     </StyledGame>
   );
 };
